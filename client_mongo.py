@@ -31,3 +31,15 @@ class Client2Mongo:
     def compter_nombre_joueur():
         nombre_joueur = Client2Mongo.collection_joueurs().count_documents({})
         return nombre_joueur
+    
+    @staticmethod
+    def id_suivant():
+        max_id = Client2Mongo.collection_joueurs().find_one(sort=[("_id", -1)])
+        new_id = 1 if max_id is None else max_id["_id"] + 1
+        return new_id
+    
+    @staticmethod
+    def id_tournoi():
+        max_id = Client2Mongo.collection_tournois().find_one(sort=[("_id", -1)])
+        new_id = 1 if max_id is None else max_id["_id"] + 1
+        return new_id

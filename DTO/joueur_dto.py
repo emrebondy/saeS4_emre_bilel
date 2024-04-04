@@ -4,7 +4,7 @@ from client_mongo import Client2Mongo
 
 class JoueurDTO:
     
-    nombre_instance = Client2Mongo.compter_nombre_joueur()
+    nombre_instance = Client2Mongo.id_suivant()
 
     def __init__(self, nom, prenom, pseudo, age, niveau, email):
         self._id = JoueurDTO.nombre_instance + 1
