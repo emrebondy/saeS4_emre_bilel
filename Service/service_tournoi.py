@@ -84,5 +84,69 @@ def supprimer_tournoi(nom_tournoi, pwd):
     else:
         raise ValueError("Aucun tournoi trouvé")
 
-if __name__ == "__main__":
-    print(supprimer_tournoi("Tournoi", "mdp"))
+def desinscrire_joueur(tournoi_id, pseudo_joueur):
+    # Rechercher le tournoi avec l'identifiant tournoi_id dans la collection tournois
+    tournoi = Client2Mongo.collection_tournois().find_one({"_id": tournoi_id})
+    if tournoi is None:
+        raise ValueError("Tournoi non trouvé")
+    
+    joueur = Client2Mongo.collection_joueurs().find_one({"pseudo": pseudo_joueur})
+
+    # Vérifier si le joueur est inscrit dans le tournoi
+    if joueur["_id"] not in tournoi['list_joueur_dto']:
+        raise ValueError("Le joueur n'est pas inscrit dans ce tournoi")
+
+    # Supprimer le joueur de la liste des joueurs du tournoi
+    tournoi['list_joueur_dto'].remove(joueur["_id"])
+
+    # Mettre à jour le tournoi dans la collection tournois
+    Client2Mongo.collection_tournois().update_one({"_id": tournoi_id}, {"$set": {"list_joueur_dto": tournoi['list_joueur_dto']}})
+
+    return rechercher_tournoi_id(tournoi_id)
+
+def ajout_match(nom_tournoi,match_id):
+    # Rechercher le tournoi avec le nom donné
+    tournoi_existant = Client2Mongo.collection_tournois().find_one({"nom": nom_tournoi})
+
+    if tournoi_existant: 
+        # Rechercher le match avec l'id donné
+        match_existant = Client2Mongo.collection_matchs().find_one({"_id": match_id})   
+
+        # Vérifier si l'ID du match est déjà dans la liste des matches du tournoi
+        if match_id in tournoi_existant.get("list_match", []):
+            raise ValueError("Ce match est déjà inscrit dans ce tournoi.")
+        
+        if match_existant:
+            # Ajouter le joueur à la liste des joueurs du tournoi
+            match_tournoi = tournoi_existant.get("list_match", [])
+            match_tournoi.append(match_id)
+            
+            # Mettre à jour le document du tournoi dans la base de données
+            Client2Mongo.collection_tournois().update_one({"_id": tournoi_existant["_id"]}, {"$set": {"list_match": match_tournoi}})
+            print("Joueur ajouté au tournoi.")
+        else:
+            raise ValueError("Le match n'existe pas") 
+    else:
+        raise ValueError("Le tournoi n'existe pas") 
+
+def recuperer_joueurs(nom_tournoi):
+    tournoi = Client2Mongo.collection_tournois().find_one({"nom":nom_tournoi})
+
+    if tournoi:
+        # Récupérer la liste des participants du tournoi
+        participants = []
+        joueur = tournoi.get("list_joueur_dto", [])
+        #return joueur_id
+        for joueurs_list in joueur:
+            joueur_id = joueurs_list["_id"]
+            participants.append(joueur_id)  # Ou tout autre attribut du joueur que vous souhaitez utiliser
+
+        if participants:
+            return participants
+        else:
+            raise ValueError("Aucun participant trouvé pour ce tournoi.")
+
+    else:
+        raise ValueError("Tournoi non trouvé.")    
+
+

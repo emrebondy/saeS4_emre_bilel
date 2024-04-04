@@ -47,3 +47,28 @@ def supprimer_un_tournoi():
     nom_tournoi = data.get("nom_tournoi")
     pwd = data.get("pwd")
     return jsonify(service_tournoi.supprimer_tournoi(nom_tournoi, pwd).__dict__)
+
+# désinscription d'un tournoi
+@tournoi_bp.route('/desinscription/', methods=['PUT'])
+def desinscrire_un_joueur():
+    data = request.json
+    tournoi_id = data.get("tournoi_id")
+    pseudo_joueur = data.get("pseudo_joueur")
+    service_tournoi.desinscrire_joueur(tournoi_id, pseudo_joueur)
+    return jsonify({"message": "joueur desinscrit"})
+
+#ajouter un match dans tournoi
+@tournoi_bp.route('/ajouter_match/', methods=['PUT'])
+def ajouter_match_tournoi():
+    data = request.json
+    nom_tournoi = data.get("nom_tournoi")
+    match_id = data.get("match_id")
+    service_tournoi.ajout_match(nom_tournoi,match_id)
+    return jsonify({"message": "match ajouter"})
+
+# lancer le tournoi et organiser les match 
+@tournoi_bp.route('/lancer_tournoi/', methods=['POST'])
+def lancer_tournoi():
+    data = request.json
+    nom_tournoi = data.get("nom_tournoi")
+    return service_tournoi.recuperer_joueurs(nom_tournoi)
