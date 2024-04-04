@@ -16,6 +16,20 @@ def rechercher_joueur(pseudo):
     joueur.set_id(donnees_joueur.get("_id"))
     return joueur
 
+def rechercher_joueur_par_id(id_joueur):
+    donnees_joueur = Client2Mongo.collection_joueurs().find_one({"_id": id_joueur})
+    if donnees_joueur:
+        joueur = JoueurDTO(
+            nom=donnees_joueur.get("nom"),
+            prenom=donnees_joueur.get("prenom"),
+            pseudo=donnees_joueur.get("pseudo"),
+            age=donnees_joueur.get("age"),
+            niveau=donnees_joueur.get("niveau"),
+            email=donnees_joueur.get("email"),
+        )
+        joueur.set_id(donnees_joueur.get("_id"))
+        return joueur
+
 def creer_joueur(nom, prenom,pseudo, age, niveau, email):
     pseudo_exist = Client2Mongo.collection_joueurs().find_one({"pseudo": pseudo})
 

@@ -11,8 +11,8 @@ def rechercher_tournoi(nom):
         date=donnees_tournoi.get("date"),
         duree=donnees_tournoi.get("duree"),
         lieu=donnees_tournoi.get("lieu"),
-        list_joueur_dto=donnees_tournoi.get("listJoueurDto"),
-        list_match=donnees_tournoi.get("listMatch"),
+        list_joueur_dto=donnees_tournoi.get("list_joueur_dto"),
+        list_match=donnees_tournoi.get("list_match"),
         pwd=donnees_tournoi.get("pwd"),
     )
     tournoi.set_id(donnees_tournoi.get("_id"))
@@ -25,8 +25,8 @@ def rechercher_tournoi_id(_id):
         date=donnees_tournoi.get("date"),
         duree=donnees_tournoi.get("duree"),
         lieu=donnees_tournoi.get("lieu"),
-        list_joueur_dto=donnees_tournoi.get("listJoueurDto"),
-        list_match=donnees_tournoi.get("listMatch"),
+        list_joueur_dto=donnees_tournoi.get("list_joueur_dto"),
+        list_match=donnees_tournoi.get("list_match"),
         pwd=donnees_tournoi.get("pwd"),
     )
     tournoi.set_id(donnees_tournoi.get("_id"))
@@ -47,7 +47,7 @@ def inscrire_joueur_au_tournoi(pseudo, _id):
         if joueur.get_id() in tournoi.get_list_joueur_dto():
             raise ValueError("Ce joueur est déjà inscrit au tournoi.")
     
-    tournoi.add_joueur(joueur.__dict__)
+    tournoi.add_joueur(joueur.get_id())
      
     Client2Mongo.collection_tournois().update_one({"_id": tournoi.get_id()}, {"$set": tournoi.__dict__})
 
