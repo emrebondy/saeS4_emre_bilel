@@ -1,15 +1,16 @@
-<p>liste-tournois works!</p>
+<div class="container mt-5">
+  <h3 class="text-center mb-4">Liste des tournois</h3>
 
-<div *ngIf="data">
-  <ul>
-
-    <li *ngFor="let tournois of data" class="list-group-item d-flex justify-content-between align-items-center mb-2">
-      <span>
-        {{ tournois.nom }}
-         <a class="btn btn-info btn-sm" routerLink="/details-tournois/{{tournois._id}}">Détails</a>
-      </span>
-    </li>
-
-  </ul>
-
+  <div *ngIf="data" class="d-flex justify-content-center">
+    <ul class="list-group w-50">
+      <li *ngFor="let tournois of data" class="list-group-item d-flex justify-content-between align-items-center mb-2">
+        <span>
+          <strong>{{ tournois.nom }}</strong>
+        </span>
+        <div class="btn-group">
+          <a class="btn btn-info btn-sm" routerLink="/details-tournois/{{tournois._id}}">Détails</a>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>

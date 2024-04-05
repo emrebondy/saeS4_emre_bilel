@@ -15,8 +15,8 @@ export class JoueurService {
     return this.http.get<Joueur[]>('http://127.0.0.1:5000/joueurs/afficher/list/');
   }
 
-  joueur_get_one(_id :string): Observable<Joueur[]> {
-    return this.http.get<Joueur[]>('/api/Joueurs/get_one/' + _id);
+  joueur_get_one(pseudo :string): Observable<Joueur> {
+    return this.http.get<Joueur>('http://127.0.0.1:5000/joueurs/afficher/' + pseudo);
   }
 
   joueur_insert_one(Joueur :Joueur): Observable<Joueur> {

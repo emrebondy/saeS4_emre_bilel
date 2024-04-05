@@ -1,0 +1,42 @@
+<p class="text-center">Détails du joueur</p>
+
+<div *ngIf="joueur" class="d-flex justify-content-center">
+
+  <div class="card bg-light mb-3" style="width: 700px;">
+    <div class="card-header bg-primary text-white text-center">
+      Détails du joueur
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-6">
+          <strong>Nom :</strong>
+          <span>{{ joueur.nom }}</span>
+        </div>
+        <div class="col-sm-6">
+          <strong>Âge :</strong>
+          <span>{{ joueur.age }}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <strong>Prénom :</strong>
+          <span>{{ joueur.prenom }}</span>
+        </div>
+        <div class="col-sm-6">
+          <strong>Niveau :</strong>
+          <span>{{ joueur.niveau }}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <strong>Email :</strong>
+          <span>{{ joueur.email }}</span>
+        </div>
+        <div class="col-sm-6">
+          <strong>Pseudo :</strong>
+          <span>{{ joueur.pseudo }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

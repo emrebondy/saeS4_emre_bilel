@@ -23,5 +23,4 @@ export class ListeJoueurComponent {
     find_all() {
       this.joueurService.joueur_get_all().subscribe(data => { this.data = data });
     }
-  
   }

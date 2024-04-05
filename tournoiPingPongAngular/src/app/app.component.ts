@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ListeJoueurComponent } from './liste-joueur/liste-joueur.component';
 import { ListeTournoisComponent } from './liste-tournois/liste-tournois.component';
+import { DetailsJoueurComponent } from './detail_joueur/detail_joueur.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, ListeJoueurComponent, CommonModule,ListeTournoisComponent],
+  imports: [RouterOutlet, RouterLink, ListeJoueurComponent, CommonModule,ListeTournoisComponent, DetailsJoueurComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

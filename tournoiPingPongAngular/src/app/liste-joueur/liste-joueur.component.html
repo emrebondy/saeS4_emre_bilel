@@ -1,17 +1,19 @@
-<p>liste-joueur</p>
+<div class="container mt-5">
+  <h3 class="text-center mb-4">Liste des joueurs</h3>
+  
+  <button class="btn btn-primary mb-3 d-block mx-auto" (click)="find_all()">Rafraîchir</button>
 
-<button class="btn btn-primary mb-3" (click)="find_all()">Rafraîchir</button>
-
-<div *ngIf="data">
-
-  <ul>
-    
-    <li *ngFor="let joueur of data" class="list-group-item d-flex justify-content-between align-items-center mb-2">
-      <span>
-        {{ joueur.nom }} {{ joueur.prenom }} 
-      </span>
-    </li>
-
-  </ul>
-
+  <div *ngIf="data" class="d-flex justify-content-center">
+    <ul class="list-group w-50">
+      <li *ngFor="let joueur of data" class="list-group-item d-flex justify-content-between align-items-center mb-2">
+        <span>
+          <strong>{{ joueur.nom }} {{ joueur.prenom }}</strong>
+        </span>
+        <div class="btn-group">
+          <a class="btn btn-info btn-sm" routerLink="/detail_joueur/{{joueur.pseudo}}">Détails</a>
+          <a class="btn btn-danger btn-sm" routerLink="/detail_joueur/{{joueur.pseudo}}">Supprimer</a>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
