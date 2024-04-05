@@ -3,10 +3,9 @@ sys.path.append('/home/bilel/prive/saeAngularPython/tournoiPingPong')
 from client_mongo import Client2Mongo
 
 class TournoiDTO:
-    nombre_instance = Client2Mongo.id_tournoi()
 
     def __init__(self, nom, date, duree, lieu, list_joueur_dto, list_match, pwd):
-        self._id = TournoiDTO.nombre_instance + 1
+        self._id = Client2Mongo.id_tournoi()
         self.nom = nom
         self.date = date
         self.duree = duree
@@ -14,7 +13,6 @@ class TournoiDTO:
         self.list_joueur_dto = list_joueur_dto
         self.list_match = list_match
         self.pwd = pwd
-        TournoiDTO.nombre_instance += 1
     
     def get_id(self):
         return self._id

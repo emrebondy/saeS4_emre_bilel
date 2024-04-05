@@ -49,7 +49,7 @@ def condition_joueur(nom,prenom,age,email):
         raise ValueError("Le prénom ne doit contenir que des lettres alphabétiques")
     if not 18 <= age <= 99:
         raise ValueError("L'âge doit être un entier compris entre 18 et 99")
-    if '@' not in email:
+    if email is not None and '@' not in email:
         raise ValueError("L'adresse email doit contenir un '@'")
     return True
 

@@ -40,7 +40,7 @@ def creer_tournoi(nom, date, duree, lieu, pwd):
     return tournoi
 
 def inscrire_joueur_au_tournoi(pseudo, _id):
-    tournoi = rechercher_tournoi_id(_id)
+    tournoi = rechercher_tournoi(_id)
     joueur = rechercher_joueur(pseudo)
 
     if tournoi.get_list_joueur_dto():

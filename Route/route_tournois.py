@@ -29,7 +29,7 @@ def creer_un_tournoi():
 @tournoi_bp.route('/inscrire/', methods=['PUT'])
 def ajouter_joueur_tournoi():
     data = request.json
-    id_tournoi = data.get("_id")
+    id_tournoi = data.get("nom_tournoi")
     pseudo = data.get("pseudo")
     return jsonify(service_tournoi.inscrire_joueur_au_tournoi(pseudo, id_tournoi).__dict__)
     

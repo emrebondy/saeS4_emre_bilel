@@ -27,7 +27,7 @@ def inserer_match_sans_score(joueur1_pseudo, joueur2_pseudo):
 
         match = MatchDTO(participants=[joueur1.get_id(), joueur2.get_id()])
         # Insertion du match dans la base de données
-        Client2Mongo.collection_matchs().insert_one(match.__dict)
+        Client2Mongo.collection_matchs().insert_one(match.__dict__)
 
         return match
 
