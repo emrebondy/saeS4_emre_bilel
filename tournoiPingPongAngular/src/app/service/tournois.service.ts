@@ -13,11 +13,11 @@ export class TournoisService {
   constructor( private http: HttpClient ) {  }
 
   rechercher_list_tournoi(): Observable<Tournois[]> {
-    return this.http.get<Tournois[]>('http://127.0.0.1:5000/tournois/afficher/list/') ;
+    return this.http.get<Tournois[]>('http://127.0.0.1:5000/tournois/') ;
   }
 
   tournois_insert_one(tournois :Tournois): Observable<Tournois> {
-    return this.http.post<Tournois>('http://127.0.0.1:5000/tournois/ajouter/', tournois);
+    return this.http.post<Tournois>('http://127.0.0.1:5000/tournois/', tournois);
   }
 
   tournoi_inscription_joueur(inscriptionTournoi: InscriptionT): Observable<any> {

@@ -11,7 +11,7 @@ import { Match } from '../ObjectDto/Match';
     constructor( private http: HttpClient ) {  }
   
     match_insert_one(match :Match): Observable<Match> {
-      return this.http.post<Match>('http://127.0.0.1:5000/matchs/ajoute/', match);
+      return this.http.post<Match>('http://127.0.0.1:5000/matchs/', match);
     }
   
   }
