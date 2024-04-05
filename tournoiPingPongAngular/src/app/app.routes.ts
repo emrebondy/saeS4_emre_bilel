@@ -6,6 +6,7 @@ import { InscriptionPersonneComponent } from './inscription_joueur/inscription_j
 import { CreerTournoisComponent } from './creation_tournoi/creation_tournoi.component';
 import { CreerMatchComponent } from './creation_match/creation_match.component';
 import { InscriptionAuTournoisComponent } from './inscription_au_tournoi/inscription_au_tournoi.component';
+import { AjouterMatchAuTournoisComponent } from './ajouter_match_tournoi/ajouter_match_tournoi.component';
 
 export const routes: Routes = [
     {path: 'liste-personnes', component: ListeJoueurComponent },
@@ -15,5 +16,6 @@ export const routes: Routes = [
     {path: 'creation_tournoi', component: CreerTournoisComponent },
     {path: 'creation_match', component: CreerMatchComponent },
     {path: 'inscription_au_tournoi', component: InscriptionAuTournoisComponent },
+    {path: 'ajouter_match_au_tournoi', component: AjouterMatchAuTournoisComponent },
 
 ];  

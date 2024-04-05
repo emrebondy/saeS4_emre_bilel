@@ -8,11 +8,12 @@ import { DetailsJoueurComponent } from './detail_joueur/detail_joueur.component'
 import { InscriptionPersonneComponent } from './inscription_joueur/inscription_joueur.component';
 import { CreerTournoisComponent } from './creation_tournoi/creation_tournoi.component';
 import { InscriptionAuTournoisComponent } from './inscription_au_tournoi/inscription_au_tournoi.component';
+import { AjouterMatchAuTournoisComponent } from './ajouter_match_tournoi/ajouter_match_tournoi.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, ListeJoueurComponent, CommonModule,ListeTournoisComponent, DetailsJoueurComponent, InscriptionPersonneComponent, CreerTournoisComponent, InscriptionAuTournoisComponent],
+  imports: [RouterOutlet, RouterLink, ListeJoueurComponent, CommonModule,ListeTournoisComponent, DetailsJoueurComponent, InscriptionPersonneComponent, CreerTournoisComponent, InscriptionAuTournoisComponent, AjouterMatchAuTournoisComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

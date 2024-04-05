@@ -1,0 +1,14 @@
+<div class="container">
+    <h2>Ajouter un match au tournoi</h2>
+    <form (ngSubmit)="insert_one()">
+      <div class="mb-3">
+        <label for="nom_tournoi" class="form-label">Nom du tournoi:</label>
+        <input type="text" class="form-control" id="nom_tournoi" name="nom_tournoi" [(ngModel)]="data.nom_tournoi" required>
+      </div>
+      <div class="mb-3">
+        <label for="match_id" class="form-label">ID du match:</label>
+        <input type="text" class="form-control" id="match_id" name="match_id" [(ngModel)]="data.match_id" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Ajouter le match</button>
+    </form>
+</div>
