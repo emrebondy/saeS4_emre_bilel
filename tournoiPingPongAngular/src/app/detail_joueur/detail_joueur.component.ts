@@ -9,7 +9,7 @@ import { RouterOutlet, RouterLink } from '@angular/router';
 @Component({
   standalone: true,
   imports: [CommonModule, NgFor, NgIf, RouterLink, RouterOutlet],
-  selector: 'app-details-personne',
+  selector: 'app-details-joueur',
   templateUrl: './detail_joueur.component.html'
 })
 export class DetailsJoueurComponent implements OnInit {

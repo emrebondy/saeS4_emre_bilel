@@ -1,0 +1,27 @@
+<div class="container mt-4">
+    <h2>Créer un tournoi</h2>
+    <form (ngSubmit)="insert_one()">
+      <div class="mb-3">
+        <label for="nom" class="form-label">Nom du tournoi</label>
+        <input type="text" class="form-control" id="nom" [(ngModel)]="data.nom" name="nom" required>
+      </div>
+      <div class="mb-3">
+        <label for="date" class="form-label">Date du tournoi</label>
+        <input type="date" class="form-control" id="date" [(ngModel)]="data.date" name="date" required>
+      </div>
+      <div class="mb-3">
+        <label for="duree" class="form-label">Durée du tournoi (en jours)</label>
+        <input type="number" class="form-control" id="duree" [(ngModel)]="data.duree" name="duree" required>
+      </div>
+      <div class="mb-3">
+        <label for="lieu" class="form-label">Lieu du tournoi</label>
+        <input type="text" class="form-control" id="lieu" [(ngModel)]="data.lieu" name="lieu" required>
+      </div>
+      <div class="mb-3">
+        <label for="pwd" class="form-label">Mot de passe du tournoi</label>
+        <input type="password" class="form-control" id="pwd" [(ngModel)]="data.pwd" name="pwd" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Créer le tournoi</button>
+    </form>
+  </div>
+  

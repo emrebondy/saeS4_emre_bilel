@@ -1,0 +1,15 @@
+<div class="container">
+    <h2>Créer un match</h2>
+    <form (ngSubmit)="insert_one()" #matchForm="ngForm">
+      <div class="mb-3">
+        <label for="joueur1" class="form-label">Joueur 1</label>
+        <input type="text" class="form-control" id="joueur1" name="joueur1" [(ngModel)]="data.joueur1" required>
+      </div>
+      <div class="mb-3">
+        <label for="joueur2" class="form-label">Joueur 2</label>
+        <input type="text" class="form-control" id="joueur2" name="joueur2" [(ngModel)]="data.joueur2" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Créer le match</button>
+    </form>
+  </div>
+  

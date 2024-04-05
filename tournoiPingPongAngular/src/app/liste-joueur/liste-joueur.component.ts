@@ -6,7 +6,7 @@ import { Joueur } from '../ObjectDto/Joueur';
 import { JoueurService } from '../service/joueur.service';
 
 @Component({
-    selector: 'app-liste-personnes',
+    selector: 'app-liste-joueur',
     standalone: true,
     imports: [RouterLink, CommonModule, RouterOutlet, NgIf, NgFor],
     templateUrl: './liste-joueur.component.html'

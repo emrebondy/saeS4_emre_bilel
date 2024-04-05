@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
+import { InscriptionT } from '../ObjectDto/inscriptionTournoi';
 
 import { Tournois } from '../ObjectDto/Tournois';
 
@@ -15,12 +16,12 @@ export class TournoisService {
     return this.http.get<Tournois[]>('http://127.0.0.1:5000/tournois/afficher/list/') ;
   }
 
-  //tournois_get_one(_id: String): Observable<Tournois[]> {
-    //return this.http.get<Tournois[]>('/api/tournois/get_one/' + _id );
-  //}
+  tournois_insert_one(tournois :Tournois): Observable<Tournois> {
+    return this.http.post<Tournois>('http://127.0.0.1:5000/tournois/ajouter/', tournois);
+  }
 
-  //tournois_insert_one(tournois :Tournois): Observable<Tournois> {
-    //return this.http.post<Tournois>('/api/tournois/post_one', tournois);
-  //}
+  tournoi_inscription_joueur(inscriptionTournoi: InscriptionT): Observable<any> {
+    return this.http.put<Tournois>('http://127.0.0.1:5000/tournois/inscrire/', inscriptionTournoi);
+  }
 
 }

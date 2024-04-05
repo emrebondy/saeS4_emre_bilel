@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Inscription</h2>
+    <form (ngSubmit)="insert_one()" #inscriptionForm="ngForm">
+      <div class="mb-3">
+        <label for="nom" class="form-label">Nom</label>
+        <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="data.nom" required>
+      </div>
+      <div class="mb-3">
+        <label for="prenom" class="form-label">Prénom</label>
+        <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="data.prenom" required>
+      </div>
+      <div class="mb-3">
+        <label for="age" class="form-label">Âge</label>
+        <input type="number" class="form-control" id="age" name="age" [(ngModel)]="data.age" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" [(ngModel)]="data.email" required>
+      </div>
+      <div class="mb-3">
+        <label for="niveau" class="form-label">Niveau</label>
+        <input type="text" class="form-control" id="niveau" name="niveau" [(ngModel)]="data.niveau" required>
+      </div>
+      <div class="mb-3">
+        <label for="pseudo" class="form-label">Pseudo</label>
+        <input type="text" class="form-control" id="pseudo" name="pseudo" [(ngModel)]="data.pseudo" required>
+      </div>
+      <button type="submit" class="btn btn-primary">S'inscrire</button>
+    </form>
+  </div>
+  

@@ -20,6 +20,6 @@ export class JoueurService {
   }
 
   joueur_insert_one(Joueur :Joueur): Observable<Joueur> {
-    return this.http.post<Joueur>('/api/Joueurs/post_one', Joueur);
+    return this.http.post<Joueur>('http://127.0.0.1:5000/joueurs/ajouter/', Joueur);
   }
 }

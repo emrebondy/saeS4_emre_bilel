@@ -1,0 +1,14 @@
+<div class="container">
+    <h2>Inscription au tournoi</h2>
+    <form (ngSubmit)="insert_one()">
+      <div class="mb-3">
+        <label for="nom_tournoi" class="form-label">Nom du tournoi:</label>
+        <input type="text" class="form-control" id="nom_tournoi" name="nom_tournoi" [(ngModel)]="data.nom_tournoi" required>
+      </div>
+      <div class="mb-3">
+        <label for="pseudo" class="form-label">Pseudo:</label>
+        <input type="text" class="form-control" id="pseudo" name="pseudo" [(ngModel)]="data.pseudo" required>
+      </div>
+      <button type="submit" class="btn btn-primary">S'inscrire</button>
+    </form>
+</div>
