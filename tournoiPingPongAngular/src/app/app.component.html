@@ -1,45 +1,19 @@
-<body>
-  <div class="form-container">
-    <form>
-      <div>
-        <label for="nom">Nom:</label>
-        <input type="text" id="nom" name="nom">
-      </div>
-      <div>
-        <label for="prenom">Prénom:</label>
-        <input type="text" id="prenom" name="prenom">
-      </div>
-      <div>
-        <label for="motdepasse">Mot de passe:</label>
-        <input type="password" id="motdepasse" name="motdepasse">
-      </div>
-      <div>
-        <label for="pseudo">Pseudo:</label>
-        <input type="text" id="pseudo" name="pseudo">
-      </div>
-      <div>
-        <label for="age">Âge:</label>
-        <input type="number" id="age" name="age">
-      </div>
-      <div>
-        <label for="niveau">Niveau:</label>
-        <select id="niveau" name="niveau">
-          <option value="debutant">Débutant</option>
-          <option value="intermediaire">Intermédiaire</option>
-          <option value="avance">Avancé</option>
-        </select>
-      </div>
-      <div>
-        <label for="mail">Mail:</label>
-        <input type="email" id="mail" name="mail">
-      </div>
-      <button type="submit">Ajouter Joueur</button>
-    </form>
-  </div>  
-</body>
-
-
-
-
-
-<router-outlet />
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/liste-personnes">liste-joueur</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

@@ -1,0 +1,17 @@
+<p>liste-joueur</p>
+
+<button class="btn btn-primary mb-3" (click)="find_all()">Rafraîchir</button>
+
+<div *ngIf="data">
+
+  <ul>
+    
+    <li *ngFor="let joueur of data" class="list-group-item d-flex justify-content-between align-items-center mb-2">
+      <span>
+        {{ joueur.nom }} {{ joueur.prenom }} 
+      </span>
+    </li>
+
+  </ul>
+
+</div>
