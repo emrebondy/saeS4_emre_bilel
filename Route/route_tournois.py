@@ -62,7 +62,7 @@ def desinscrire_un_joueur():
 def ajouter_match_tournoi():
     data = request.json
     nom_tournoi = data.get("nom_tournoi")
-    match_id = data.get("match_id")
+    match_id = int(data.get("match_id"))
     service_tournoi.ajout_match(nom_tournoi,match_id)
     return jsonify({"message": "match ajouter"})
 
